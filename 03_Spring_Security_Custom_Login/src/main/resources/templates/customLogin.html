@@ -1,0 +1,97 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Please sign in</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous">
+<link
+	href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css"
+	rel="stylesheet"
+	integrity="sha384-oOE/3m0LUMPub4kaC09mrdEhIc+e3exm4xOGxAmuFXhBNF4hcg/6MiAXAf5p0P56"
+	crossorigin="anonymous" />
+<style>
+body {
+	background-image: linear-gradient(to bottom, #f2f2f2, #fff);
+	background-repeat: no-repeat;
+}
+
+.container {
+	max-width: 400px;
+	margin: 40px auto;
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-signin {
+	padding: 20px;
+}
+
+.form-signin-heading {
+	color: #337ab7;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.form-control {
+	height: 40px;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+}
+
+.btn-primary {
+	background-color: #337ab7;
+	border-color: #337ab7;
+	color: #fff;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.btn-primary:hover {
+	background-color: #23527c;
+	border-color: #23527c;
+}
+
+.error {
+	margin-top: 20px;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<form class="form-signin" method="post" action="customLogin">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<p>
+				<label for="username" class="sr-only">Username</label> <input
+					type="text" id="username" name="username" class="form-control"
+					placeholder="Username" required autofocus>
+			</p>
+			<p>
+				<label for="password" class="sr-only">Password</label> <input
+					type="password" id="password" name="password" class="form-control"
+					placeholder="Password" required>
+			</p>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Signin</button>
+			<div th:if="${errorMessage}" class="error">
+				<p style="color: red;">[[${errorMessage}]]</p>
+			</div>
+			<div th:if="${logoutMessage}" class="error">
+				<p style="color: Green;">[[${logoutMessage}]]</p>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
